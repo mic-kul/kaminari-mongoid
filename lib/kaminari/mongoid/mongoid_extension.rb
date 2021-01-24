@@ -16,13 +16,6 @@ module Kaminari
             include Kaminari::PageScopeMethods
           end
         end
-
-        module ClassMethods
-          def inherited(kls)
-            super
-            kls.send(:include, Kaminari::Mongoid::MongoidExtension::Document.dup)
-          end
-        end if ::Mongoid::VERSION < '5.0.0'
       end
     end
   end
